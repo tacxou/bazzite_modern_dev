@@ -59,8 +59,11 @@ $qemuArgs = @(
     "-drive", "if=none,id=system,format=qcow2,file=$disk",
     "-device", "virtio-blk-pci,drive=system",
     "-device", "virtio-vga",
-    "-display", "sdl",
+    "-display", "gtk",
     "-device", "qemu-xhci",
     "-device", "usb-tablet",
+    "-audiodev", "dsound,id=snd0",
+    "-device", "ich9-intel-hda",
+    "-device", "hda-duplex,audiodev=snd0",
     "-nic", "user,model=virtio-net-pci"
 )

@@ -15,6 +15,9 @@ cp -avf "/ctx/system_files"/. /
 # this installs a package from fedora repos
 dnf5 install -y tmux
 
+# COSMIC desktop (Plasma stays installed, but COSMIC becomes the default)
+dnf5 install -y @cosmic-desktop
+
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
@@ -25,3 +28,7 @@ dnf5 install -y tmux
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
+
+# Replace Plasma Login with the COSMIC greeter as display manager
+systemctl disable plasmalogin.service
+systemctl enable cosmic-greeter.service
